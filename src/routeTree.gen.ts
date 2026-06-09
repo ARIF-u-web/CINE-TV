@@ -10,8 +10,16 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as TvRouteImport } from './routes/tv'
+import { Route as TermsRouteImport } from './routes/terms'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as SearchRouteImport } from './routes/search'
+import { Route as RulesRouteImport } from './routes/rules'
+import { Route as ReviewsRouteImport } from './routes/reviews'
+import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as MoviesRouteImport } from './routes/movies'
+import { Route as DmcaRouteImport } from './routes/dmca'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as TitleTypeIdRouteImport } from './routes/title.$type.$id'
 
@@ -20,14 +28,54 @@ const TvRoute = TvRouteImport.update({
   path: '/tv',
   getParentRoute: () => rootRouteImport,
 } as any)
+const TermsRoute = TermsRouteImport.update({
+  id: '/terms',
+  path: '/terms',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SearchRoute = SearchRouteImport.update({
   id: '/search',
   path: '/search',
   getParentRoute: () => rootRouteImport,
 } as any)
+const RulesRoute = RulesRouteImport.update({
+  id: '/rules',
+  path: '/rules',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReviewsRoute = ReviewsRouteImport.update({
+  id: '/reviews',
+  path: '/reviews',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyRoute = PrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const MoviesRoute = MoviesRouteImport.update({
   id: '/movies',
   path: '/movies',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DmcaRoute = DmcaRouteImport.update({
+  id: '/dmca',
+  path: '/dmca',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -43,38 +91,110 @@ const TitleTypeIdRoute = TitleTypeIdRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
+  '/dmca': typeof DmcaRoute
   '/movies': typeof MoviesRoute
+  '/privacy': typeof PrivacyRoute
+  '/reviews': typeof ReviewsRoute
+  '/rules': typeof RulesRoute
   '/search': typeof SearchRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/terms': typeof TermsRoute
   '/tv': typeof TvRoute
   '/title/$type/$id': typeof TitleTypeIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
+  '/dmca': typeof DmcaRoute
   '/movies': typeof MoviesRoute
+  '/privacy': typeof PrivacyRoute
+  '/reviews': typeof ReviewsRoute
+  '/rules': typeof RulesRoute
   '/search': typeof SearchRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/terms': typeof TermsRoute
   '/tv': typeof TvRoute
   '/title/$type/$id': typeof TitleTypeIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
+  '/dmca': typeof DmcaRoute
   '/movies': typeof MoviesRoute
+  '/privacy': typeof PrivacyRoute
+  '/reviews': typeof ReviewsRoute
+  '/rules': typeof RulesRoute
   '/search': typeof SearchRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/terms': typeof TermsRoute
   '/tv': typeof TvRoute
   '/title/$type/$id': typeof TitleTypeIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/movies' | '/search' | '/tv' | '/title/$type/$id'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/dmca'
+    | '/movies'
+    | '/privacy'
+    | '/reviews'
+    | '/rules'
+    | '/search'
+    | '/sitemap.xml'
+    | '/terms'
+    | '/tv'
+    | '/title/$type/$id'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/movies' | '/search' | '/tv' | '/title/$type/$id'
-  id: '__root__' | '/' | '/movies' | '/search' | '/tv' | '/title/$type/$id'
+  to:
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/dmca'
+    | '/movies'
+    | '/privacy'
+    | '/reviews'
+    | '/rules'
+    | '/search'
+    | '/sitemap.xml'
+    | '/terms'
+    | '/tv'
+    | '/title/$type/$id'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/dmca'
+    | '/movies'
+    | '/privacy'
+    | '/reviews'
+    | '/rules'
+    | '/search'
+    | '/sitemap.xml'
+    | '/terms'
+    | '/tv'
+    | '/title/$type/$id'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  ContactRoute: typeof ContactRoute
+  DmcaRoute: typeof DmcaRoute
   MoviesRoute: typeof MoviesRoute
+  PrivacyRoute: typeof PrivacyRoute
+  ReviewsRoute: typeof ReviewsRoute
+  RulesRoute: typeof RulesRoute
   SearchRoute: typeof SearchRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  TermsRoute: typeof TermsRoute
   TvRoute: typeof TvRoute
   TitleTypeIdRoute: typeof TitleTypeIdRoute
 }
@@ -88,6 +208,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TvRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/terms': {
+      id: '/terms'
+      path: '/terms'
+      fullPath: '/terms'
+      preLoaderRoute: typeof TermsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/search': {
       id: '/search'
       path: '/search'
@@ -95,11 +229,53 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SearchRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/rules': {
+      id: '/rules'
+      path: '/rules'
+      fullPath: '/rules'
+      preLoaderRoute: typeof RulesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reviews': {
+      id: '/reviews'
+      path: '/reviews'
+      fullPath: '/reviews'
+      preLoaderRoute: typeof ReviewsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy': {
+      id: '/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof PrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/movies': {
       id: '/movies'
       path: '/movies'
       fullPath: '/movies'
       preLoaderRoute: typeof MoviesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dmca': {
+      id: '/dmca'
+      path: '/dmca'
+      fullPath: '/dmca'
+      preLoaderRoute: typeof DmcaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -121,11 +297,29 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  ContactRoute: ContactRoute,
+  DmcaRoute: DmcaRoute,
   MoviesRoute: MoviesRoute,
+  PrivacyRoute: PrivacyRoute,
+  ReviewsRoute: ReviewsRoute,
+  RulesRoute: RulesRoute,
   SearchRoute: SearchRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
+  TermsRoute: TermsRoute,
   TvRoute: TvRoute,
   TitleTypeIdRoute: TitleTypeIdRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}

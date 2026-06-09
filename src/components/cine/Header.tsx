@@ -1,6 +1,6 @@
 import { Link, useNavigate } from "@tanstack/react-router";
 import { useState } from "react";
-import { Search, Settings, Film, Tv, Home, Menu, X } from "lucide-react";
+import { Search, Settings, Film, Tv, Home, Menu, X, User } from "lucide-react";
 import {
   DropdownMenu, DropdownMenuContent, DropdownMenuItem,
   DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger,
@@ -42,20 +42,38 @@ export function Header() {
           </div>
         </form>
 
+        <Link
+          to="/account"
+          aria-label="My Account"
+          className="ml-auto md:ml-0 inline-flex size-10 items-center justify-center rounded-full border border-border bg-secondary/60 transition hover:border-primary hover:text-primary"
+        >
+          <User className="size-4" />
+        </Link>
+
         <DropdownMenu>
-          <DropdownMenuTrigger className="ml-auto md:ml-0 inline-flex size-10 items-center justify-center rounded-full border border-border bg-secondary/60 transition hover:border-primary hover:text-primary">
+          <DropdownMenuTrigger aria-label="Settings" className="inline-flex size-10 items-center justify-center rounded-full border border-border bg-secondary/60 transition hover:border-primary hover:text-primary">
             <Settings className="size-4" />
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end" className="w-56">
-            <DropdownMenuLabel>Settings</DropdownMenuLabel>
+            <DropdownMenuLabel>Account</DropdownMenuLabel>
+            <DropdownMenuItem asChild><Link to="/account">My Account</Link></DropdownMenuItem>
             <DropdownMenuSeparator />
+            <DropdownMenuLabel>Company</DropdownMenuLabel>
             <DropdownMenuItem asChild><Link to="/about">About Us</Link></DropdownMenuItem>
             <DropdownMenuItem asChild><Link to="/contact">Contact Us</Link></DropdownMenuItem>
             <DropdownMenuItem asChild><Link to="/reviews">Reviews</Link></DropdownMenuItem>
+            <DropdownMenuItem asChild><Link to="/careers">Careers</Link></DropdownMenuItem>
             <DropdownMenuSeparator />
+            <DropdownMenuLabel>Support</DropdownMenuLabel>
+            <DropdownMenuItem asChild><Link to="/help">Help Center</Link></DropdownMenuItem>
+            <DropdownMenuItem asChild><Link to="/faq">FAQ</Link></DropdownMenuItem>
+            <DropdownMenuSeparator />
+            <DropdownMenuLabel>Legal</DropdownMenuLabel>
             <DropdownMenuItem asChild><Link to="/terms">Terms of Use</Link></DropdownMenuItem>
             <DropdownMenuItem asChild><Link to="/privacy">Privacy Policy</Link></DropdownMenuItem>
+            <DropdownMenuItem asChild><Link to="/cookies">Cookie Policy</Link></DropdownMenuItem>
             <DropdownMenuItem asChild><Link to="/rules">Rules & Regulations</Link></DropdownMenuItem>
+            <DropdownMenuItem asChild><Link to="/disclaimer">Disclaimer</Link></DropdownMenuItem>
             <DropdownMenuItem asChild><Link to="/dmca">DMCA</Link></DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>

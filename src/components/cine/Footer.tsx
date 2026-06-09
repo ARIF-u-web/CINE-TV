@@ -15,14 +15,18 @@ export function Footer() {
             </p>
           </div>
           <FooterCol title="Browse" links={[
-            ["Home", "/"], ["Movies", "/movies"], ["TV Shows", "/tv"], ["Search", "/search"],
+            ["Home", "/"], ["Movies", "/movies"], ["TV Shows", "/tv"],
+            ["Search", "/search"], ["My Account", "/account"],
           ]} />
           <FooterCol title="Company" links={[
-            ["About Us", "/about"], ["Contact Us", "/contact"], ["Reviews", "/reviews"],
+            ["About Us", "/about"], ["Contact Us", "/contact"],
+            ["Reviews", "/reviews"], ["Careers", "/careers"],
+            ["Help Center", "/help"], ["FAQ", "/faq"],
           ]} />
           <FooterCol title="Legal" links={[
             ["Terms of Use", "/terms"], ["Privacy Policy", "/privacy"],
-            ["Rules & Regulations", "/rules"], ["DMCA", "/dmca"],
+            ["Cookie Policy", "/cookies"], ["Rules & Regulations", "/rules"],
+            ["Disclaimer", "/disclaimer"], ["DMCA", "/dmca"],
           ]} />
         </div>
         <div className="mt-10 flex flex-col items-start justify-between gap-3 border-t border-border pt-6 text-xs text-muted-foreground md:flex-row md:items-center">

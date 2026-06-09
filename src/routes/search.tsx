@@ -38,7 +38,7 @@ function SearchPage() {
     navigate({ search: { q: input.trim() } });
   };
 
-  const results = query.data?.results.filter((r) => r.media_type !== "person") ?? [];
+  const results = query.data?.results.filter((r: any) => r.media_type !== "person") ?? [];
 
   return (
     <PageLayout>

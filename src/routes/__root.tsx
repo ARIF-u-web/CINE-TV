@@ -89,7 +89,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 function RootShell({ children }: { children: ReactNode }) {
   return (
     <html lang="en" className="dark">
-      <head><HeadContent /></head>
+      <head>
+        <HeadContent />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var t=localStorage.getItem('cinetv:theme')||'dark';var r=t==='system'?(matchMedia('(prefers-color-scheme: light)').matches?'light':'dark'):t;var h=document.documentElement;h.classList.toggle('dark',r==='dark');h.classList.toggle('light',r==='light');h.style.colorScheme=r;}catch(e){}})();`,
+          }}
+        />
+      </head>
       <body>{children}<Scripts /></body>
     </html>
   );
@@ -97,9 +104,22 @@ function RootShell({ children }: { children: ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+  useEffect(() => {
+    import("@/lib/theme").then(m => m.initTheme());
+    import("@/lib/auth").then(m => m.auth.init());
+  }, []);
   return (
     <QueryClientProvider client={queryClient}>
       <Outlet />
+      <CookieBannerLazy />
     </QueryClientProvider>
   );
+}
+
+function CookieBannerLazy() {
+  const [C, setC] = (require("react") as typeof import("react")).useState<React.ComponentType | null>(null);
+  (require("react") as typeof import("react")).useEffect(() => {
+    import("@/components/cine/CookieBanner").then(m => setC(() => m.CookieBanner));
+  }, []);
+  return C ? <C /> : null;
 }

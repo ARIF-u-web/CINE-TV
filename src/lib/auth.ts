@@ -32,21 +32,25 @@ function readUsers(): StoredUser[] {
 }
 function writeUsers(u: StoredUser[]) { localStorage.setItem(USERS, JSON.stringify(u)); }
 
-function ensureAdminSeed() {
+function seedAdmin(email: string, name: string, password: string) {
   const users = readUsers();
-  if (!users.some(u => u.email === "admin@cinetv.local")) {
-    // Seed admin: admin@cinetv.local / admin123  (demo only)
-    hash("admin123").then(passwordHash => {
-      const next = readUsers();
-      if (next.some(u => u.email === "admin@cinetv.local")) return;
-      next.push({
-        id: "admin-seed", name: "CINE TV Admin", email: "admin@cinetv.local",
-        role: "admin", createdAt: Date.now(), passwordHash,
-      });
-      writeUsers(next);
+  if (users.some(u => u.email === email)) return;
+  hash(password).then(passwordHash => {
+    const next = readUsers();
+    if (next.some(u => u.email === email)) return;
+    next.push({
+      id: crypto.randomUUID(), name, email,
+      role: "admin", createdAt: Date.now(), passwordHash,
     });
-  }
+    writeUsers(next);
+  });
 }
+
+function ensureAdminSeed() {
+  seedAdmin("admin@cinetv.local", "CINE TV Admin", "admin123");
+  seedAdmin("islam.islam.arif333@gmail.com", "Arif", "@Arif123@");
+}
+
 
 export const auth = {
   init() { if (typeof window !== "undefined") ensureAdminSeed(); },

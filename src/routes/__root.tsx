@@ -107,22 +107,11 @@ function RootShell({ children }: { children: ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
-  useEffect(() => {
-    import("@/lib/theme").then(m => m.initTheme());
-    import("@/lib/auth").then(m => m.auth.init());
-  }, []);
+  useEffect(() => { initTheme(); auth.init(); }, []);
   return (
     <QueryClientProvider client={queryClient}>
       <Outlet />
-      <CookieBannerLazy />
+      <CookieBanner />
     </QueryClientProvider>
   );
-}
-
-function CookieBannerLazy() {
-  const [C, setC] = (require("react") as typeof import("react")).useState<React.ComponentType | null>(null);
-  (require("react") as typeof import("react")).useEffect(() => {
-    import("@/components/cine/CookieBanner").then(m => setC(() => m.CookieBanner));
-  }, []);
-  return C ? <C /> : null;
 }

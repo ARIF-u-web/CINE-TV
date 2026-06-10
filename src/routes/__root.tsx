@@ -11,6 +11,9 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { CookieBanner } from "@/components/cine/CookieBanner";
+import { initTheme } from "@/lib/theme";
+import { auth } from "@/lib/auth";
 
 function NotFoundComponent() {
   return (

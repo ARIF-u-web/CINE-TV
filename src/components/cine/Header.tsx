@@ -41,6 +41,8 @@ export function Header() {
           <NavLink to="/" icon={<Home className="size-4" />}>Home</NavLink>
           <NavLink to="/movies" icon={<Film className="size-4" />}>Movies</NavLink>
           <NavLink to="/tv" icon={<Tv className="size-4" />}>TV Shows</NavLink>
+          <NavLink to="/anime" icon={<Sparkles className="size-4" />}>Anime</NavLink>
+          <NavLink to="/account" icon={<Heart className="size-4" />}>My List</NavLink>
         </nav>
 
         <form onSubmit={submit} className="ml-auto hidden flex-1 max-w-md md:flex">

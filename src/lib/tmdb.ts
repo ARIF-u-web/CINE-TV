@@ -40,4 +40,14 @@ export const tmdb = {
   tv: (id: string | number) =>
     get<any>(`/tv/${id}`, { append_to_response: "credits,videos,similar,reviews" }),
   genresMovie: () => get<{ genres: { id: number; name: string }[] }>("/genre/movie/list"),
+  genresTV: () => get<{ genres: { id: number; name: string }[] }>("/genre/tv/list"),
+  // Anime = animation genre (16) with Japanese origin
+  animeMovies: (page = 1) =>
+    get<{ results: TMDBItem[] }>("/discover/movie", { with_genres: 16, with_original_language: "ja", sort_by: "popularity.desc", page }),
+  animeTV: (page = 1) =>
+    get<{ results: TMDBItem[] }>("/discover/tv", { with_genres: 16, with_original_language: "ja", sort_by: "popularity.desc", page }),
+  discoverMovieByGenre: (genreId: number, page = 1) =>
+    get<{ results: TMDBItem[] }>("/discover/movie", { with_genres: genreId, sort_by: "popularity.desc", page }),
+  discoverTVByGenre: (genreId: number, page = 1) =>
+    get<{ results: TMDBItem[] }>("/discover/tv", { with_genres: genreId, sort_by: "popularity.desc", page }),
 };

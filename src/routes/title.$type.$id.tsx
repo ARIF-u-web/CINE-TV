@@ -72,18 +72,36 @@ function TitlePage() {
                 ))}
               </div>
               <p className="mt-6 max-w-3xl leading-relaxed text-foreground/90">{d.overview}</p>
-              {trailer && (
+              <div className="mt-6 flex flex-wrap gap-3">
                 <a
-                  href={`https://www.youtube.com/watch?v=${trailer.key}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-6 inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-bold text-primary-foreground transition hover:opacity-90"
+                  href="#watch"
+                  className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-bold text-primary-foreground transition hover:opacity-90"
                 >
-                  <Play className="size-4 fill-current" /> Watch Trailer
+                  <Play className="size-4 fill-current" /> Watch Now
                 </a>
-              )}
+                {trailer && (
+                  <a
+                    href={`https://www.youtube.com/watch?v=${trailer.key}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 rounded-full border border-border bg-secondary/60 px-6 py-3 text-sm font-bold transition hover:border-primary hover:text-primary"
+                  >
+                    <Play className="size-4" /> Watch Trailer
+                  </a>
+                )}
+              </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section id="watch" className="mx-auto max-w-5xl px-4 pb-12">
+        <h2 className="mb-4 font-display text-3xl tracking-wide">Watch</h2>
+        <div className="flex aspect-video flex-col items-center justify-center gap-3 rounded-xl border border-dashed border-border bg-black/60 p-8 text-center">
+          <Play className="size-10 text-primary" />
+          <p className="text-sm text-muted-foreground">
+            Streaming source not connected yet. Once you upload a video file for this title from the admin panel, it will play here.
+          </p>
         </div>
       </section>
 

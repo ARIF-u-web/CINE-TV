@@ -37,11 +37,34 @@ export function Header() {
           <span className="font-display text-3xl tracking-wider text-foreground">TV</span>
         </Link>
 
-        <nav className="hidden items-center gap-1 md:flex">
+        <Link to="/" className="flex items-center gap-2">
+          <span className="font-display text-3xl tracking-wider text-primary brand-glow">CINE</span>
+          <span className="font-display text-3xl tracking-wider text-foreground">TV</span>
+        </Link>
+
+        <div className="hidden items-center gap-1 md:flex">
+          <button
+            onClick={() => window.history.back()}
+            aria-label="Go back"
+            className="inline-flex size-8 items-center justify-center rounded-full border border-border bg-secondary/60 transition hover:border-primary hover:text-primary"
+          >
+            <ChevronLeft className="size-4" />
+          </button>
+          <button
+            onClick={() => window.history.forward()}
+            aria-label="Go forward"
+            className="inline-flex size-8 items-center justify-center rounded-full border border-border bg-secondary/60 transition hover:border-primary hover:text-primary"
+          >
+            <ChevronRight className="size-4" />
+          </button>
+        </div>
+
+        <nav className="hidden items-center gap-1 lg:flex">
           <NavLink to="/" icon={<Home className="size-4" />}>Home</NavLink>
           <NavLink to="/movies" icon={<Film className="size-4" />}>Movies</NavLink>
           <NavLink to="/tv" icon={<Tv className="size-4" />}>TV Shows</NavLink>
           <NavLink to="/anime" icon={<Sparkles className="size-4" />}>Anime</NavLink>
+          <NavLink to="/genres" icon={<LayoutGrid className="size-4" />}>Genres</NavLink>
           <NavLink to="/account" icon={<Heart className="size-4" />}>My List</NavLink>
         </nav>
 

@@ -95,6 +95,16 @@ function TitlePage() {
         </div>
       </section>
 
+      <section id="watch" className="mx-auto max-w-5xl px-4 pb-12">
+        <h2 className="mb-4 font-display text-3xl tracking-wide">Watch</h2>
+        <div className="flex aspect-video flex-col items-center justify-center gap-3 rounded-xl border border-dashed border-border bg-black/60 p-8 text-center">
+          <Play className="size-10 text-primary" />
+          <p className="text-sm text-muted-foreground">
+            Streaming source not connected yet. Once you upload a video file for this title from the admin panel, it will play here.
+          </p>
+        </div>
+      </section>
+
       {trailer && (
         <section className="mx-auto max-w-5xl px-4 pb-12">
           <h2 className="mb-4 font-display text-3xl tracking-wide">Trailer</h2>

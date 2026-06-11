@@ -1,6 +1,6 @@
 import { Link, useNavigate } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { Search, Settings, Film, Tv, Home, Menu, X, User, LogIn, LogOut, UserPlus, Shield } from "lucide-react";
+import { Search, Settings, Film, Tv, Home, Menu, X, User, LogIn, LogOut, UserPlus, Shield, Sparkles, Heart } from "lucide-react";
 import {
   DropdownMenu, DropdownMenuContent, DropdownMenuItem,
   DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger,

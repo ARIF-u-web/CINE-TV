@@ -72,16 +72,24 @@ function TitlePage() {
                 ))}
               </div>
               <p className="mt-6 max-w-3xl leading-relaxed text-foreground/90">{d.overview}</p>
-              {trailer && (
+              <div className="mt-6 flex flex-wrap gap-3">
                 <a
-                  href={`https://www.youtube.com/watch?v=${trailer.key}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-6 inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-bold text-primary-foreground transition hover:opacity-90"
+                  href="#watch"
+                  className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-bold text-primary-foreground transition hover:opacity-90"
                 >
-                  <Play className="size-4 fill-current" /> Watch Trailer
+                  <Play className="size-4 fill-current" /> Watch Now
                 </a>
-              )}
+                {trailer && (
+                  <a
+                    href={`https://www.youtube.com/watch?v=${trailer.key}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 rounded-full border border-border bg-secondary/60 px-6 py-3 text-sm font-bold transition hover:border-primary hover:text-primary"
+                  >
+                    <Play className="size-4" /> Watch Trailer
+                  </a>
+                )}
+              </div>
             </div>
           </div>
         </div>

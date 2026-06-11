@@ -16,7 +16,7 @@ export function Footer() {
           </div>
           <FooterCol title="Browse" links={[
             ["Home", "/"], ["Movies", "/movies"], ["TV Shows", "/tv"],
-            ["Search", "/search"], ["My Account", "/account"],
+            ["Anime", "/anime"], ["Search", "/search"], ["My Account", "/account"],
           ]} />
           <FooterCol title="Company" links={[
             ["About Us", "/about"], ["Contact Us", "/contact"],

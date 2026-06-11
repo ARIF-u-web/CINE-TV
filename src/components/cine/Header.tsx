@@ -160,7 +160,8 @@ export function Header() {
             <NavLink to="/" icon={<Home className="size-4" />} onClick={() => setOpen(false)}>Home</NavLink>
             <NavLink to="/movies" icon={<Film className="size-4" />} onClick={() => setOpen(false)}>Movies</NavLink>
             <NavLink to="/tv" icon={<Tv className="size-4" />} onClick={() => setOpen(false)}>TV Shows</NavLink>
-            <NavLink to="/account" icon={<User className="size-4" />} onClick={() => setOpen(false)}>Account</NavLink>
+            <NavLink to="/anime" icon={<Sparkles className="size-4" />} onClick={() => setOpen(false)}>Anime</NavLink>
+            <NavLink to="/account" icon={<User className="size-4" />} onClick={() => setOpen(false)}>My List / Account</NavLink>
             {me?.role === "admin" && <NavLink to="/admin" icon={<Shield className="size-4" />} onClick={() => setOpen(false)}>Admin</NavLink>}
             {me ? (
               <button onClick={() => { signOut(); setOpen(false); }} className="inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium text-muted-foreground hover:bg-secondary hover:text-foreground">

@@ -18,6 +18,7 @@ import { Route as ReviewsRouteImport } from './routes/reviews'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as MoviesRouteImport } from './routes/movies'
 import { Route as HelpRouteImport } from './routes/help'
+import { Route as GenresRouteImport } from './routes/genres'
 import { Route as FaqRouteImport } from './routes/faq'
 import { Route as DmcaRouteImport } from './routes/dmca'
 import { Route as DisclaimerRouteImport } from './routes/disclaimer'
@@ -75,6 +76,11 @@ const MoviesRoute = MoviesRouteImport.update({
 const HelpRoute = HelpRouteImport.update({
   id: '/help',
   path: '/help',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GenresRoute = GenresRouteImport.update({
+  id: '/genres',
+  path: '/genres',
   getParentRoute: () => rootRouteImport,
 } as any)
 const FaqRoute = FaqRouteImport.update({
@@ -156,6 +162,7 @@ export interface FileRoutesByFullPath {
   '/disclaimer': typeof DisclaimerRoute
   '/dmca': typeof DmcaRoute
   '/faq': typeof FaqRoute
+  '/genres': typeof GenresRoute
   '/help': typeof HelpRoute
   '/movies': typeof MoviesRoute
   '/privacy': typeof PrivacyRoute
@@ -180,6 +187,7 @@ export interface FileRoutesByTo {
   '/disclaimer': typeof DisclaimerRoute
   '/dmca': typeof DmcaRoute
   '/faq': typeof FaqRoute
+  '/genres': typeof GenresRoute
   '/help': typeof HelpRoute
   '/movies': typeof MoviesRoute
   '/privacy': typeof PrivacyRoute
@@ -205,6 +213,7 @@ export interface FileRoutesById {
   '/disclaimer': typeof DisclaimerRoute
   '/dmca': typeof DmcaRoute
   '/faq': typeof FaqRoute
+  '/genres': typeof GenresRoute
   '/help': typeof HelpRoute
   '/movies': typeof MoviesRoute
   '/privacy': typeof PrivacyRoute
@@ -231,6 +240,7 @@ export interface FileRouteTypes {
     | '/disclaimer'
     | '/dmca'
     | '/faq'
+    | '/genres'
     | '/help'
     | '/movies'
     | '/privacy'
@@ -255,6 +265,7 @@ export interface FileRouteTypes {
     | '/disclaimer'
     | '/dmca'
     | '/faq'
+    | '/genres'
     | '/help'
     | '/movies'
     | '/privacy'
@@ -279,6 +290,7 @@ export interface FileRouteTypes {
     | '/disclaimer'
     | '/dmca'
     | '/faq'
+    | '/genres'
     | '/help'
     | '/movies'
     | '/privacy'
@@ -304,6 +316,7 @@ export interface RootRouteChildren {
   DisclaimerRoute: typeof DisclaimerRoute
   DmcaRoute: typeof DmcaRoute
   FaqRoute: typeof FaqRoute
+  GenresRoute: typeof GenresRoute
   HelpRoute: typeof HelpRoute
   MoviesRoute: typeof MoviesRoute
   PrivacyRoute: typeof PrivacyRoute
@@ -379,6 +392,13 @@ declare module '@tanstack/react-router' {
       path: '/help'
       fullPath: '/help'
       preLoaderRoute: typeof HelpRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/genres': {
+      id: '/genres'
+      path: '/genres'
+      fullPath: '/genres'
+      preLoaderRoute: typeof GenresRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/faq': {
@@ -488,6 +508,7 @@ const rootRouteChildren: RootRouteChildren = {
   DisclaimerRoute: DisclaimerRoute,
   DmcaRoute: DmcaRoute,
   FaqRoute: FaqRoute,
+  GenresRoute: GenresRoute,
   HelpRoute: HelpRoute,
   MoviesRoute: MoviesRoute,
   PrivacyRoute: PrivacyRoute,

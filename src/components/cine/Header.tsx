@@ -37,11 +37,6 @@ export function Header() {
           <span className="font-display text-3xl tracking-wider text-foreground">TV</span>
         </Link>
 
-        <Link to="/" className="flex items-center gap-2">
-          <span className="font-display text-3xl tracking-wider text-primary brand-glow">CINE</span>
-          <span className="font-display text-3xl tracking-wider text-foreground">TV</span>
-        </Link>
-
         <div className="hidden items-center gap-1 md:flex">
           <button
             onClick={() => window.history.back()}
